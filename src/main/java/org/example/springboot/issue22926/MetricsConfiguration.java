@@ -5,12 +5,13 @@ import io.micrometer.core.instrument.binder.jvm.JvmCompilationMetrics;
 import io.micrometer.core.instrument.binder.jvm.JvmHeapPressureMetrics;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
 public class MetricsConfiguration {
     private final MeterRegistry meterRegistry;
 
-    public MetricsConfiguration(MeterRegistry meterRegistry) {
+    public MetricsConfiguration(@Lazy MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
     }
 
